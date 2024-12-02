@@ -56,7 +56,6 @@
                                                         <th scope="col">Lương cơ bản</th>
                                                         <th scope="col">Ngày công</th>
                                                         <th scope="col">Tổng lương</th>
-                                                        <th scope="col">Hành động</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -82,10 +81,6 @@
                                                             <td class="text-center align-middle">
                                                                 <fmt:formatNumber value="${luong.tongLuong}"
                                                                     type="number" /> VND
-                                                            </td>
-                                                            <td class="text-center align-middle">
-                                                                <a class="btn btn-success"
-                                                                    href="/quan-ly/thong-tin-nhan-vien/${nhanVien.getMaNhanVien()}">Xem</a>
                                                             </td>
                                                         </tr>
                                                     </c:forEach>
