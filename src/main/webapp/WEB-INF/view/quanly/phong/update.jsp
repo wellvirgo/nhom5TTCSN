@@ -58,28 +58,28 @@
                                                 <div class="mb-3">
                                                     <label for="tenPhong" class="form-label">Tên phòng</label>
                                                     <form:input type="text" class="form-control" id="tenPhong"
-                                                        path="tenPhong" />
+                                                        path="tenPhong" required="required" />
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="loaiPhong" class="form-label">Loại phòng</label>
                                                     <form:input type="text" class="form-control" id="loaiPhong"
-                                                        path="loaiPhong" />
+                                                        path="loaiPhong" required="required" />
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="giaPhong" class="form-label">Giá phòng</label>
                                                     <form:input type="number" class="form-control" id="giaPhong"
-                                                        path="giaPhong" />
+                                                        path="giaPhong" required="required" />
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="moTa" class="form-label">Mô tả</label>
                                                     <form:textarea type="text" class="form-control" id="moTa"
-                                                        name="moTa" path="moTa" />
+                                                        name="moTa" path="moTa" required="required" />
                                                 </div>
 
                                                 <div class="mb-3">
                                                     <label for="tinhTrang" class="form-label">Tình trạng</label>
                                                     <form:input type="text" class="form-control" id="tinhTrang"
-                                                        path="tinhTrang" />
+                                                        path="tinhTrang" required="required" />
                                                 </div>
 
                                                 <div class="d-flex gap-2">

@@ -37,21 +37,21 @@
                                             <div class="mb-3 col-6">
                                                 <label for="maNhanVien" class="form-label label">Mã nhân viên</label>
                                                 <form:input type="text" path="nhanVien.maNhanVien" id="maNhanVien"
-                                                    name="maNhanVien" class="form-control" />
+                                                    name="maNhanVien" class="form-control" required="required" />
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="mb-3 col-6">
                                                 <label for="tenTaiKhoan" class="form-label label">Tên tài khoản</label>
                                                 <form:input type="text" path="tenTaiKhoan" id="tenTaiKhoan"
-                                                    name="tenTaiKhoan" class="form-control" />
+                                                    name="tenTaiKhoan" class="form-control" required="required" />
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="mb-3 col-6">
                                                 <label for="matKhau" class="form-label label">Mật khẩu</label>
                                                 <form:input type="text" path="matKhau" id="matKhau" name="matKhau"
-                                                    class="form-control" />
+                                                    class="form-control" required="required" />
                                             </div>
                                         </div>
                                         <div class="row">

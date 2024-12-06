@@ -43,7 +43,7 @@
                                             <div class="mb-3 col-6">
                                                 <label for="tenPhong" class="form-label label">Tên phòng</label>
                                                 <form:input type="text" path="tenPhong" id="tenPhong" name="tenPhong"
-                                                    class="form-control" />
+                                                    class="form-control" required="required" />
                                             </div>
 
                                             <div class="mb-3 col-3">
@@ -56,13 +56,13 @@
                                         <div class="mb-3">
                                             <label for="loaiPhong" class="form-label label">Loại phòng</label>
                                             <form:input type="text" path="loaiPhong" id="loaiPhong" name="loaiPhong"
-                                                class="form-control" />
+                                                class="form-control" required="required" />
                                         </div>
 
                                         <div class="mb-3">
                                             <label for="moTa" class="form-label label">Mô tả </label>
                                             <form:textarea type="text" class="form-control" id="moTa" name="moTa"
-                                                path="moTa" />
+                                                path="moTa" required="required" />
                                         </div>
 
                                         <button class="btn btn-warning" type="submit">Thêm</button>

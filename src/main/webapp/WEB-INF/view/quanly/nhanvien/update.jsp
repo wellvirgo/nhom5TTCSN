@@ -74,7 +74,7 @@
                                                         <label for="soCMND" class="form-label label">Số
                                                             CMND/CCCD</label>
                                                         <form:input type="text" path="soCMND" id="soCMND" name="soCMND"
-                                                            class="form-control" />
+                                                            class="form-control" required="required" />
                                                     </div>
 
                                                     <div class="mb-3 col-6">
@@ -91,12 +91,13 @@
                                                         <label for="soDienThoai" class="form-label label">Số điện
                                                             thoại</label>
                                                         <form:input type="text" path="soDienThoai" id="soDienThoai"
-                                                            name="soDienThoai" class="form-control" />
+                                                            name="soDienThoai" class="form-control"
+                                                            required="required" />
                                                     </div>
                                                     <div class="mb-3 col-6">
                                                         <label for="email" class="form-label label">Email</label>
                                                         <form:input type="email" path="email" id="email" name="email"
-                                                            class="form-control" />
+                                                            class="form-control" required="required" />
                                                     </div>
                                                 </div>
 
@@ -104,22 +105,22 @@
                                                     <div class="mb-3 col-3">
                                                         <label for="ngaySinh" class="form-label label">Ngày sinh</label>
                                                         <form:input type="date" class="form-control" id="ngaySinh"
-                                                            name="ngaySinh" path="ngaySinh" />
+                                                            name="ngaySinh" path="ngaySinh" required="required" />
                                                     </div>
                                                     <div class="mb-3 col-3">
                                                         <label for="gioiTinh" class="form-label label">Giới tính</label>
                                                         <form:input type="text" path="gioiTinh" id="gioiTinh"
-                                                            name="gioiTinh" class="form-control" />
+                                                            name="gioiTinh" class="form-control" required="required" />
                                                     </div>
                                                     <div class="mb-3 col-3">
                                                         <label for="chucVu" class="form-label label">Chức vụ</label>
                                                         <form:input type="text" class="form-control" id="chucVu"
-                                                            name="chucVu" path="chucVu" />
+                                                            name="chucVu" path="chucVu" required="required" />
                                                     </div>
                                                     <div class="mb-3 col-3">
                                                         <label for="caLam" class="form-label label">Ca làm</label>
                                                         <form:input type="text" class="form-control" id="caLam"
-                                                            name="caLam" path="caLam" />
+                                                            name="caLam" path="caLam" required="required" />
                                                     </div>
                                                 </div>
 
@@ -136,7 +137,7 @@
                                                     <div class="mb-3">
                                                         <label for="diaChi" class="form-label label">Địa chỉ</label>
                                                         <form:input type="text" class="form-control" id="diaChi"
-                                                            name="diaChi" path="diaChi" />
+                                                            name="diaChi" path="diaChi" required="required" />
                                                     </div>
                                                 </div>
 

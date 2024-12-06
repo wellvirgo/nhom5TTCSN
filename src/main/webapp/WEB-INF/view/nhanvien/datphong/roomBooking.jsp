@@ -65,7 +65,8 @@
                                                                     <label for="soCMND" class="form-label label">Số
                                                                         CMND/CCCD</label>
                                                                     <form:input type="text" path="soCMND" id="soCMND"
-                                                                        name="soCMND" class="form-control" />
+                                                                        name="soCMND" class="form-control"
+                                                                        required="required" />
                                                                 </div>
                                                                 <div class="mb-3 col-6">
                                                                     <label for="tenKhachHang"
@@ -73,7 +74,7 @@
                                                                         khách hàng</label>
                                                                     <form:input type="text" path="tenKhachHang"
                                                                         id="tenKhachHang" name="tenKhachHang"
-                                                                        class="form-control" />
+                                                                        class="form-control" required="required" />
                                                                 </div>
                                                             </div>
                                                             <div class="row">
@@ -82,14 +83,14 @@
                                                                         điện thoại</label>
                                                                     <form:input type="text" path="soDienThoai"
                                                                         id="soDienThoai" name="soDienThoai"
-                                                                        class="form-control" />
+                                                                        class="form-control" required="required" />
                                                                 </div>
                                                                 <div class="mb-3 col-6">
                                                                     <label for="gioiTinh" class="form-label label">Giới
                                                                         tính</label>
                                                                     <form:input type="text" path="gioiTinh"
                                                                         id="gioiTinh" name="gioiTinh"
-                                                                        class="form-control" />
+                                                                        class="form-control" required="required" />
                                                                 </div>
                                                             </div>
                                                             <div class="row">
@@ -97,7 +98,8 @@
                                                                     <label for="diaChi" class="form-label label">Địa
                                                                         chỉ</label>
                                                                     <form:input type="text" path="diaChi" id="diaChi"
-                                                                        name="diaChi" class="form-control" />
+                                                                        name="diaChi" class="form-control"
+                                                                        required="required" />
                                                                 </div>
                                                             </div>
                                                             <div class="row">
@@ -105,7 +107,8 @@
                                                                     <label for="email"
                                                                         class="form-label label">Email</label>
                                                                     <form:input type="email" path="email" id="email"
-                                                                        name="email" class="form-control" />
+                                                                        name="email" class="form-control"
+                                                                        required="required" />
                                                                 </div>
                                                             </div>
                                                             <div class="row">
@@ -114,7 +117,7 @@
                                                                         sinh</label>
                                                                     <form:input type="date" path="ngaySinh"
                                                                         id="ngaySinh" name="ngaySinh"
-                                                                        class="form-control" />
+                                                                        class="form-control" required="required" />
                                                                 </div>
                                                             </div>
                                                             <button type="submit" class="btn btn-warning mt-2 mb-4">Tiếp

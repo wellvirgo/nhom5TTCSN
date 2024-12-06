@@ -63,7 +63,7 @@
                                                     <div class="mb-3 col-12">
                                                         <label for="matKhau" class="form-label label">Mật khẩu</label>
                                                         <form:input type="text" path="matKhau" id="matKhau"
-                                                            name="matKhau" class="form-control" />
+                                                            name="matKhau" class="form-control" required="required" />
                                                     </div>
                                                 </div>
                                                 <div class="row">

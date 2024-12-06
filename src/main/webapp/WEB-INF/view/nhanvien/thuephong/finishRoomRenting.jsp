@@ -71,7 +71,7 @@
                                                                         nhận</label>
                                                                     <form:input type="date" path="ngayNhan"
                                                                         id="ngayNhan" name="ngayNhan"
-                                                                        class="form-control" />
+                                                                        class="form-control" required="required" />
                                                                 </div>
                                                             </div>
                                                             <div class="row">
@@ -79,7 +79,8 @@
                                                                     <label for="ngayTra" class="form-label label">Ngày
                                                                         trả</label>
                                                                     <form:input type="date" path="ngayTra" id="ngayTra"
-                                                                        name="ngayTra" class="form-control" />
+                                                                        name="ngayTra" class="form-control"
+                                                                        required="required" />
                                                                 </div>
                                                             </div>
                                                             <div class="row">
@@ -87,8 +88,8 @@
                                                                     <label for="soNguoi" class="form-label label">Số
                                                                         người</label>
                                                                     <form:input type="number" path="soNguoi"
-                                                                        id="soNguoi" name="soNguoi"
-                                                                        class="form-control" />
+                                                                        id="soNguoi" name="soNguoi" class="form-control"
+                                                                        required="required" />
                                                                 </div>
                                                             </div>
                                                             <div class="row">
@@ -97,7 +98,7 @@
                                                                         class="form-label label">Tổng chi phí</label>
                                                                     <form:input type="number" path="tongChiPhi"
                                                                         id="tongChiPhi" name="tongChiPhi"
-                                                                        class="form-control" />
+                                                                        class="form-control" required="required" />
 
                                                                     <button type="button" class="btn mt-2 bg-secondary"
                                                                         onclick="calculateCost()">Tính</button>
@@ -133,7 +134,7 @@
                                                                         khách hàng</label>
                                                                     <input type="text" id="tenKhachHang"
                                                                         name="tenKhachHang" class="form-control"
-                                                                        value="${khachHang.tenKhachHang}" />
+                                                                        value="${khachHang.tenKhachHang}" readonly />
                                                                 </div>
                                                             </div>
                                                             <div class="row">

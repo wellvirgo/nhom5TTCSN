@@ -28,7 +28,7 @@ public class RoomController {
     @PostMapping("/quan-ly/them-phong")
     public String addRoom(@ModelAttribute("phongMoi") Phong phongMoi) {
         roomService.create(phongMoi);
-        return "quanly/phong/show";
+        return "redirect:/quan-ly/phong";
     }
 
     @GetMapping("/quan-ly/xem-phong/{id}")
