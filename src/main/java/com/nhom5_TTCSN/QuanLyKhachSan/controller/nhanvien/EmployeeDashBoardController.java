@@ -51,4 +51,9 @@ public class EmployeeDashBoardController {
         model.addAttribute("nhanVien", nhanVien);
         return "nhanvien/chamcong/show";
     }
+
+    @GetMapping("/nhan-vien/notification")
+    public String notifyForEmployee() {
+        return "nhanvien/Notification";
+    }
 }

@@ -14,12 +14,12 @@
                         Phòng
                     </a>
 
-                    <a class="nav-link" href="/nhan-vien">
+                    <a class="nav-link" href="/nhan-vien/notification">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         Thông tin khách thuê phòng
                     </a>
 
-                    <a class="nav-link" href="/tai-khoan">
+                    <a class="nav-link" href="/nhan-vien/notification">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         Thông tin khách đặt phòng
                     </a>
