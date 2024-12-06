@@ -72,7 +72,8 @@ public class EmployeeController {
 
     @PostMapping("/quan-ly/xoa-nhan-vien")
     public String delete(@ModelAttribute("nhanVien") NhanVien nhanVien) {
-        employeeService.delete(nhanVien);
+        NhanVien nhanVienXoa = employeeService.fetchEmployeeById(nhanVien.getMaNhanVien());
+        employeeService.delete(nhanVienXoa);
         return "redirect:/quan-ly/nhan-vien";
     }
 }

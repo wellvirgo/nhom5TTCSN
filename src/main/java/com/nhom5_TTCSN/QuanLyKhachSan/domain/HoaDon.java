@@ -2,6 +2,9 @@ package com.nhom5_TTCSN.QuanLyKhachSan.domain;
 
 import java.sql.Date;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,6 +24,7 @@ public class HoaDon {
     private double thanhToanTruoc;
 
     @ManyToOne
+    @Cascade(CascadeType.ALL)
     @JoinColumn(name = "maNhanVien")
     private NhanVien nhanVien;
     @OneToOne

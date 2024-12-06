@@ -31,10 +31,10 @@ public class NhanVien {
     private String caLam;
     private String linkAnhNhanVien;
 
-    @OneToMany(mappedBy = "nhanVien")
+    @OneToMany(mappedBy = "nhanVien", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<DatPhong> datPhongs;
 
-    @OneToMany(mappedBy = "nhanVien")
+    @OneToMany(mappedBy = "nhanVien", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ThuePhong> thuePhongs;
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -45,7 +45,7 @@ public class NhanVien {
     @JoinColumn(name = "maTaiKhoan")
     private TaiKhoan taiKhoan;
 
-    @OneToMany(mappedBy = "nhanVien")
+    @OneToMany(mappedBy = "nhanVien", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<HoaDon> hoaDons;
 
     public long getMaNhanVien() {

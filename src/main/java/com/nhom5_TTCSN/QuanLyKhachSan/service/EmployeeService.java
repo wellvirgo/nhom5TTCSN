@@ -14,8 +14,12 @@ public class EmployeeService {
 
     private final EmployeeRepository employeeRepository;
 
-    public EmployeeService(EmployeeRepository employeeRepository) {
+    private final SalaryService salaryService;
+
+    public EmployeeService(EmployeeRepository employeeRepository,
+            SalaryService salaryService) {
         this.employeeRepository = employeeRepository;
+        this.salaryService = salaryService;
     }
 
     public List<NhanVien> fetchListEmployee() {
@@ -30,6 +34,7 @@ public class EmployeeService {
         Luong luong = new Luong();
         luong.setLuongCoBan(luongCoBan);
         nhanVien.setLuong(luong);
+        salaryService.save(luong);
         return employeeRepository.save(nhanVien);
     }
 
@@ -55,9 +60,6 @@ public class EmployeeService {
         Luong luong = nhanVienCapNhat.getLuong();
         luong.setLuongCoBan(nhanVien.getLuong().getLuongCoBan());
         nhanVienCapNhat.setLuong(luong);
-        // Luong luong = new Luong();
-        // luong.setLuongCoBan(nhanVien.getLuong().getLuongCoBan());
-        // nhanVienCapNhat.setLuong(luong);
         return employeeRepository.save(nhanVienCapNhat);
     }
 
