@@ -16,7 +16,9 @@ public class AccountService {
     }
 
     public List<TaiKhoan> fetchListAccount() {
-        return accountRepository.findAll();
+        return accountRepository.findAll().stream()
+                .filter(account -> !account.getTenTaiKhoan().equals("") && !account.getMatKhau().equals(""))
+                .toList();
     }
 
     public TaiKhoan save(TaiKhoan taiKhoan) {
@@ -28,7 +30,10 @@ public class AccountService {
     }
 
     public void delete(TaiKhoan taiKhoan) {
-        accountRepository.delete(taiKhoan);
+        TaiKhoan taiKhoanXoa = fetchAccountById(taiKhoan.getMaTaiKhoan());
+        taiKhoanXoa.setTenTaiKhoan("");
+        taiKhoan.setMatKhau("");
+        accountRepository.save(taiKhoanXoa);
     }
 
     public TaiKhoan getTaiKhoanByTenTaiKhoan(String tenTaiKhoan) {

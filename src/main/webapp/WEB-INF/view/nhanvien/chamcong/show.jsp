@@ -67,7 +67,7 @@
                                                     <fmt:formatNumber type="number"
                                                         value="${nhanVien.luong.ngayCong}" /> ngày
                                                 </div>
-                                                <a href="/nhan-vien/phong" class="btn btn-secondary mt-5">Quay lại</a>
+                                                <a href="/nhan-vien" class="btn btn-secondary mt-5">Quay lại</a>
                                             </div>
                                         </div>
                                     </div>
