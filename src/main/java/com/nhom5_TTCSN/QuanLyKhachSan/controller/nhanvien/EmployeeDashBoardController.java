@@ -1,10 +1,12 @@
 package com.nhom5_TTCSN.QuanLyKhachSan.controller.nhanvien;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.nhom5_TTCSN.QuanLyKhachSan.domain.NhanVien;
 import com.nhom5_TTCSN.QuanLyKhachSan.domain.Phong;
@@ -55,5 +57,14 @@ public class EmployeeDashBoardController {
     @GetMapping("/nhan-vien/notification")
     public String notifyForEmployee() {
         return "nhanvien/Notification";
+    }
+
+    @GetMapping("/nhan-vien/loc-theo-ngay")
+    public String filterByTime(Model model, @RequestParam("ngayCanTim") String ngayCanTim) {
+        Date date = Date.valueOf(ngayCanTim);
+        List<Phong> phongs = roomService.filterRoomByDate(date);
+        model.addAttribute("phongs", phongs);
+        model.addAttribute("ngayCanTim", ngayCanTim);
+        return "nhanvien/dashboard";
     }
 }

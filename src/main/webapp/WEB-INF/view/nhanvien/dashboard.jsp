@@ -30,6 +30,14 @@
                             <div class="container-fluid px-4">
                                 <div class="d-flex justify-content-between">
                                     <h1 class="mt-4">Bảng điều khiển</h1>
+                                    <div class="mt-4">
+                                        <form action="/nhan-vien/loc-theo-ngay" method="get">
+                                            <input type="date" name="ngayCanTim" value="${ngayCanTim}">
+                                            <button class="btn btn-info" type="submit">
+                                                Lọc
+                                            </button>
+                                        </form>
+                                    </div>
                                     <div>
                                         <a href="/nhan-vien/dat-phong" class="btn btn-warning my-4 mx-2">Đặt phòng</a>
                                         <a href="/nhan-vien/thue-phong" class="btn btn-primary my-4">Thuê phòng</a>
@@ -39,6 +47,11 @@
                                     <li class="breadcrumb-item active">Bảng điều khiển</li>
                                 </ol>
                                 <div class="row">
+                                    <c:if test="${phongs.size()==0}">
+                                        <div style="text-align: center;">
+                                            <h5>Không có phòng nào</h5>
+                                        </div>
+                                    </c:if>
                                     <c:forEach var="phong" items="${phongs}">
                                         <c:if test="${phong.tinhTrang eq 'trống'}">
                                             <c:set var="bgColor" value="bg-success" />

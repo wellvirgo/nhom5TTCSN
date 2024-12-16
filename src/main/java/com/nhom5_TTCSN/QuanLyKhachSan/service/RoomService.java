@@ -1,18 +1,27 @@
 package com.nhom5_TTCSN.QuanLyKhachSan.service;
 
+import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import com.nhom5_TTCSN.QuanLyKhachSan.domain.Phong;
+import com.nhom5_TTCSN.QuanLyKhachSan.repository.RoomBookingRepository;
+import com.nhom5_TTCSN.QuanLyKhachSan.repository.RoomRentingRepository;
 import com.nhom5_TTCSN.QuanLyKhachSan.repository.RoomRepository;
 
 @Service
 public class RoomService {
     private final RoomRepository roomRepository;
+    private final RoomBookingRepository roomBookingRepository;
+    private final RoomRentingRepository roomRentingRepository;
 
-    public RoomService(RoomRepository roomRepository) {
+    public RoomService(RoomRepository roomRepository, RoomBookingRepository roomBookingRepository,
+            RoomRentingRepository roomRentingRepository) {
         this.roomRepository = roomRepository;
+        this.roomBookingRepository = roomBookingRepository;
+        this.roomRentingRepository = roomRentingRepository;
     }
 
     public List<Phong> fetchAll() {
@@ -55,5 +64,19 @@ public class RoomService {
     public Phong updateStatus(Phong phong, String status) {
         phong.setTinhTrang(status);
         return roomRepository.save(phong);
+    }
+
+    public List<Phong> filterRoomByDate(Date date) {
+        List<Phong> roomFromBooking = roomBookingRepository.findByNgayNhan(date).stream()
+                .map(datPhong -> datPhong.getPhong())
+                .toList();
+        List<Phong> roomFromRenting = roomRentingRepository.findByNgayNhan(date).stream()
+                .map(thuePhong -> thuePhong.getPhong())
+                .toList();
+
+        List<Phong> rooms = new ArrayList<>();
+        rooms.addAll(roomFromBooking);
+        rooms.addAll(roomFromRenting);
+        return rooms;
     }
 }
