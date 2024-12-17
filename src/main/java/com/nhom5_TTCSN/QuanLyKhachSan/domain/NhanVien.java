@@ -48,6 +48,9 @@ public class NhanVien {
     @OneToMany(mappedBy = "nhanVien", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<HoaDon> hoaDons;
 
+    @OneToMany(mappedBy = "nhanVien", cascade = CascadeType.ALL)
+    private List<NgayLam> ngayLams;
+
     public long getMaNhanVien() {
         return maNhanVien;
     }
@@ -182,6 +185,14 @@ public class NhanVien {
 
     public void setHoaDons(List<HoaDon> hoaDons) {
         this.hoaDons = hoaDons;
+    }
+
+    public List<NgayLam> getNgayLams() {
+        return ngayLams;
+    }
+
+    public void setNgayLams(List<NgayLam> ngayLams) {
+        this.ngayLams = ngayLams;
     }
 
 }

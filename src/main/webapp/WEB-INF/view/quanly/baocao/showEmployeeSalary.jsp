@@ -75,8 +75,11 @@
                                                                     type="number" /> VND
                                                             </td>
                                                             <td class="text-center align-middle">
-                                                                <fmt:formatNumber value="${luong.ngayCong}"
-                                                                    type="number" />
+                                                                <a href="/quan-ly/bao-cao/ngay-lam-viec/${luong.nhanVien.maNhanVien}"
+                                                                    class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover">
+                                                                    <fmt:formatNumber value="${luong.ngayCong}"
+                                                                        type="number" />
+                                                                </a>
                                                             </td>
                                                             <td class="text-center align-middle">
                                                                 <fmt:formatNumber value="${luong.tongLuong}"

@@ -47,7 +47,10 @@
                                         <div class="row">
                                             <div class="col-12 mx-auto">
                                                 <div class="d-flex justify-content-between">
-                                                    <h3>Thực hiện chấm công</h3>
+                                                    <div>
+                                                        <h3>Thực hiện chấm công</h3>
+                                                        <strong>Ngày hiện tại: </strong> ${ngayHienTai}
+                                                    </div>
                                                     <form:form method="post" action="/nhan-vien/cham-cong"
                                                         modelAttribute="nhanVien">
                                                         <div class="mb-3 col-6">
@@ -57,15 +60,27 @@
                                                             <form:input type="text" class="form-control" id="maNhanVien"
                                                                 name="maNhanVien" path="maNhanVien" readonly="true" />
                                                         </div>
-                                                        <button type="submit" class="btn btn-primary mb-2">Chấm
-                                                            công</button>
+
+                                                        <c:if test="${check}">
+                                                            <button type="submit" class="btn btn-primary mb-2">
+                                                                Chấm công
+                                                            </button>
+                                                        </c:if>
+                                                        <c:if test="${!check}">
+                                                            <button type="submit" class="btn btn-primary mb-2" disabled
+                                                                aria-disabled="true">
+                                                                Chấm công
+                                                            </button>
+                                                        </c:if>
                                                     </form:form>
                                                 </div>
                                                 <hr>
-                                                <div>
+                                                <div class="mt-2">
                                                     Đã chấm công:
-                                                    <fmt:formatNumber type="number"
-                                                        value="${nhanVien.luong.ngayCong}" /> ngày
+                                                    <strong>
+                                                        <fmt:formatNumber type="number"
+                                                            value="${nhanVien.luong.ngayCong}" />
+                                                    </strong> ngày
                                                 </div>
                                                 <a href="/nhan-vien" class="btn btn-secondary mt-5">Quay lại</a>
                                             </div>

@@ -8,15 +8,19 @@ import com.nhom5_TTCSN.QuanLyKhachSan.domain.Luong;
 import com.nhom5_TTCSN.QuanLyKhachSan.domain.NhanVien;
 import com.nhom5_TTCSN.QuanLyKhachSan.service.EmployeeService;
 import com.nhom5_TTCSN.QuanLyKhachSan.service.SalaryService;
+import com.nhom5_TTCSN.QuanLyKhachSan.service.WorkingDayService;
 
 @Controller
 public class EmployeeTimeKeepingController {
     private final EmployeeService employeeService;
     private final SalaryService salaryService;
+    private final WorkingDayService workingDayService;
 
-    public EmployeeTimeKeepingController(EmployeeService employeeService, SalaryService salaryService) {
+    public EmployeeTimeKeepingController(EmployeeService employeeService, SalaryService salaryService,
+            WorkingDayService workingDayService) {
         this.employeeService = employeeService;
         this.salaryService = salaryService;
+        this.workingDayService = workingDayService;
     }
 
     @PostMapping("/nhan-vien/cham-cong")
@@ -25,8 +29,9 @@ public class EmployeeTimeKeepingController {
         Luong luong = nhanVienChamCong.getLuong();
         luong.setNgayCong(luong.getNgayCong() + 1);
         luong.setTongLuong(luong.getLuongCoBan() * luong.getNgayCong());
+        workingDayService.create(nhanVienChamCong);
         salaryService.save(luong);
-        return "redirect:/nhan-vien";
+        return "redirect:/nhan-vien/cham-cong";
     }
 
 }

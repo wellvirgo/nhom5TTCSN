@@ -8,12 +8,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.nhom5_TTCSN.QuanLyKhachSan.domain.NgayLam;
 import com.nhom5_TTCSN.QuanLyKhachSan.domain.NhanVien;
 import com.nhom5_TTCSN.QuanLyKhachSan.domain.Phong;
 import com.nhom5_TTCSN.QuanLyKhachSan.domain.TaiKhoan;
 import com.nhom5_TTCSN.QuanLyKhachSan.service.AccountService;
 import com.nhom5_TTCSN.QuanLyKhachSan.service.EmployeeService;
 import com.nhom5_TTCSN.QuanLyKhachSan.service.RoomService;
+import com.nhom5_TTCSN.QuanLyKhachSan.service.WorkingDayService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -23,12 +25,14 @@ public class EmployeeDashBoardController {
     private final RoomService roomService;
     private final AccountService accountService;
     private final EmployeeService employeeService;
+    private final WorkingDayService workingDayService;
 
     public EmployeeDashBoardController(RoomService roomService, AccountService accountService,
-            EmployeeService employeeService) {
+            EmployeeService employeeService, WorkingDayService workingDayService) {
         this.roomService = roomService;
         this.accountService = accountService;
         this.employeeService = employeeService;
+        this.workingDayService = workingDayService;
     }
 
     @GetMapping("/nhan-vien")
@@ -47,10 +51,18 @@ public class EmployeeDashBoardController {
 
     @GetMapping("/nhan-vien/cham-cong")
     public String toTimeKeeping(Model model, HttpServletRequest request) {
-        HttpSession session = request.getSession();
+        HttpSession session = request.getSession(false);
         TaiKhoan taiKhoan = accountService.getTaiKhoanByTenTaiKhoan(session.getAttribute("tenTaiKhoan") + "");
         NhanVien nhanVien = employeeService.fetchEmployeeByAccount(taiKhoan);
+        Date currentDate = new Date(System.currentTimeMillis());
+        List<NgayLam> ngayLams = nhanVien.getNgayLams();
+        boolean check = ngayLams.stream()
+                .filter(ngayLam -> ngayLam.getNgayLam().getDate() == currentDate.getDate())
+                .toList()
+                .isEmpty();
         model.addAttribute("nhanVien", nhanVien);
+        model.addAttribute("ngayHienTai", currentDate);
+        model.addAttribute("check", check);
         return "nhanvien/chamcong/show";
     }
 

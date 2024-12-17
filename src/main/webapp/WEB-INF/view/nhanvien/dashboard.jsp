@@ -32,7 +32,7 @@
                                     <h1 class="mt-4">Bảng điều khiển</h1>
                                     <div class="mt-4">
                                         <form action="/nhan-vien/loc-theo-ngay" method="get">
-                                            <input type="date" name="ngayCanTim" value="${ngayCanTim}">
+                                            <input type="date" name="ngayCanTim" value="${ngayCanTim}" required>
                                             <button class="btn btn-info" type="submit">
                                                 Lọc
                                             </button>
@@ -75,13 +75,24 @@
 
                                                 <div
                                                     class="card-footer d-flex align-items-center justify-content-between">
-
                                                     <a class="card-text small text-white"
                                                         style="text-decoration: none;">
                                                         <fmt:formatNumber value="${phong.getGiaPhong()}"
                                                             type="number" /> VND
                                                     </a>
                                                     <div class="small text-white">${phong.getTinhTrang()}</div>
+                                                </div>
+                                                <div class="small text-white">
+                                                    <c:if test="${phong.tinhTrang eq 'được đặt'}">
+                                                        <strong>Ngày trả:
+                                                            ${phong.getDatPhong().get(0).getNgayTra()}
+                                                        </strong>
+                                                    </c:if>
+                                                    <c:if test="${phong.tinhTrang eq 'đang thuê'}">
+                                                        <strong>Ngày trả:
+                                                            ${phong.getThuePhongs().get(0).getNgayTra()}
+                                                        </strong>
+                                                    </c:if>
                                                 </div>
                                             </div>
                                         </div>
