@@ -1,6 +1,7 @@
 package com.nhom5_TTCSN.QuanLyKhachSan.controller.nhanvien;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -15,7 +16,6 @@ import com.nhom5_TTCSN.QuanLyKhachSan.domain.TaiKhoan;
 import com.nhom5_TTCSN.QuanLyKhachSan.service.AccountService;
 import com.nhom5_TTCSN.QuanLyKhachSan.service.EmployeeService;
 import com.nhom5_TTCSN.QuanLyKhachSan.service.RoomService;
-import com.nhom5_TTCSN.QuanLyKhachSan.service.WorkingDayService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -25,14 +25,12 @@ public class EmployeeDashBoardController {
     private final RoomService roomService;
     private final AccountService accountService;
     private final EmployeeService employeeService;
-    private final WorkingDayService workingDayService;
 
     public EmployeeDashBoardController(RoomService roomService, AccountService accountService,
-            EmployeeService employeeService, WorkingDayService workingDayService) {
+            EmployeeService employeeService) {
         this.roomService = roomService;
         this.accountService = accountService;
         this.employeeService = employeeService;
-        this.workingDayService = workingDayService;
     }
 
     @GetMapping("/nhan-vien")
@@ -54,15 +52,13 @@ public class EmployeeDashBoardController {
         HttpSession session = request.getSession(false);
         TaiKhoan taiKhoan = accountService.getTaiKhoanByTenTaiKhoan(session.getAttribute("tenTaiKhoan") + "");
         NhanVien nhanVien = employeeService.fetchEmployeeByAccount(taiKhoan);
-        Date currentDate = new Date(System.currentTimeMillis());
+        LocalDate currentDate = LocalDate.now();
         List<NgayLam> ngayLams = nhanVien.getNgayLams();
-        boolean check = ngayLams.stream()
-                .filter(ngayLam -> ngayLam.getNgayLam().getDate() == currentDate.getDate())
-                .toList()
-                .isEmpty();
+        boolean isPunchIn = ngayLams.stream()
+                .anyMatch(ngayLam -> ngayLam.getNgayLam().toLocalDate().equals(currentDate));
         model.addAttribute("nhanVien", nhanVien);
         model.addAttribute("ngayHienTai", currentDate);
-        model.addAttribute("check", check);
+        model.addAttribute("isPunchIn", isPunchIn);
         return "nhanvien/chamcong/show";
     }
 
@@ -75,8 +71,10 @@ public class EmployeeDashBoardController {
     public String filterByTime(Model model, @RequestParam("ngayCanTim") String ngayCanTim) {
         Date date = Date.valueOf(ngayCanTim);
         List<Phong> phongs = roomService.filterRoomByDate(date);
+        int lastElementIndex = phongs.size() - 1;
         model.addAttribute("phongs", phongs);
         model.addAttribute("ngayCanTim", ngayCanTim);
+        model.addAttribute("lastElementIndex", lastElementIndex);
         return "nhanvien/dashboard";
     }
 }

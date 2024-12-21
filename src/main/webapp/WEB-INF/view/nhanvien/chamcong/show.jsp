@@ -61,12 +61,12 @@
                                                                 name="maNhanVien" path="maNhanVien" readonly="true" />
                                                         </div>
 
-                                                        <c:if test="${check}">
+                                                        <c:if test="${!isPunchIn}">
                                                             <button type="submit" class="btn btn-primary mb-2">
                                                                 Chấm công
                                                             </button>
                                                         </c:if>
-                                                        <c:if test="${!check}">
+                                                        <c:if test="${isPunchIn}">
                                                             <button type="submit" class="btn btn-primary mb-2" disabled
                                                                 aria-disabled="true">
                                                                 Chấm công

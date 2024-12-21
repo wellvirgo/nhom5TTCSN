@@ -85,7 +85,7 @@
                                                 <div class="small text-white">
                                                     <c:if test="${phong.tinhTrang eq 'được đặt'}">
                                                         <strong>Ngày trả:
-                                                            ${phong.getDatPhong().get(0).getNgayTra()}
+                                                            ${phong.getDatPhong().get(lastElementIndex).getNgayTra()}
                                                         </strong>
                                                     </c:if>
                                                     <c:if test="${phong.tinhTrang eq 'đang thuê'}">
